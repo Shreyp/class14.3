@@ -1,0 +1,14 @@
+CREATE DATABASE holiday_db;
+USE holiday_db;
+CREATE TABLE clients_table (c_id INT NOT NULL AUTO_INCREMENT, client_name VARCHAR(255), PRIMARY KEY(c_id));
+CREATE TABLE parties_table (p_id INT NOT NULL AUTO_INCREMENT, party_name VARCHAR(255), party_type VARCHAR(255), party_cost INT, c_id INT NOT NULL, PRIMARY KEY(p_id), FOREIGN KEY(c_id) REFERENCES clients_table(c_id));
+
+INSERT INTO clients_table (client_name) VALUES ('Jonny');
+INSERT INTO clients_table (client_name) VALUES ('Bobby');
+
+INSERT INTO parties_table (party_name, party_type, party_cost, c_id) VALUES ('Jonnys New Years Party', 'New Years', 600, 1);
+INSERT INTO parties_table (party_name, party_type, party_cost, c_id) VALUES ('Jonnys Chinese New Years Party', 'New Years', 500, 1);
+
+INSERT INTO parties_table (party_name, party_type, party_cost, c_id) VALUES ('Bobbys Baby Shower Party', 'Baby Shower', 200, 2);
+INSERT INTO parties_table (party_name, party_type, party_cost, c_id) VALUES ('Bobbys Cousin Birthday Party', 'Birthday Partyr', 300, 2);
+INSERT INTO parties_table (party_name, party_type, party_cost, c_id) VALUES ('Bobbys Superbowl Party', 'Superbowl Party', 250, 2);
